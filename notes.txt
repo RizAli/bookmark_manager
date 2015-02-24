@@ -1,0 +1,39 @@
+installation notes
+https://github.com/makersacademy/course/blob/master/bookmark_manager.md
+1. brew install postgresql
+
+After homebrew has downloaded the software it will show you some installation instructions, follow them! Ok, they might not be that readable ;)
+
+
+ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents
+
+
+launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
+
+
+to check installation type in psql
+postgres#  \q
+
+to talk to the database, we will need the datamapper gem. it is an ORM(object-relational mapper)
+this is a convenient way to interact with our data using classes and objects instead of working with database tables directly.
+
+web project has atleast three environments
+==========================================
+development, test and production
+--  the environment the shell variables are in and
+--  the environment the project is running in are two different concepts
+that share the same name
+
+the environment the project is running in determines the behaviour of the project.
+
+example: if we have e-commerce project
+our payment processing would be different for the three environment:
+--  in production(when real customers use it)
+--  all credit cards would be charged for real in development(when writing code)
+--  we would use special "development" credit cards that behave like real ones, except that no money is actually spent in test(when running automated tests)
+
+
+
+
+
+
