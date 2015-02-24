@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'data_mapper'
 
+
 env = ENV['RACK_ENV'] || 'development'
 
 # tell the datamapper to use a postgres database on localhost.
@@ -15,3 +16,21 @@ DataMapper.finalize
 
 # However, the database tables don't exist yet. let's tell datamapper to create them
 DataMapper.auto_upgrade!
+
+class BookmarkManager < Sinatra::Base
+
+  set :views, Proc.new { File.join(root, "..", "views") }
+
+
+  get '/' do
+    @links = Link.all
+    erb :index
+  end
+
+  post '/links' do
+    url = params["url"]
+    title = params["title"]
+    Link.create(:url => url, :title => title)
+    redirect to('/')
+  end
+end

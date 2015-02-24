@@ -20,6 +20,7 @@ this is a convenient way to interact with our data using classes and objects ins
 web project has atleast three environments
 ==========================================
 development, test and production
+
 --  the environment the shell variables are in and
 --  the environment the project is running in are two different concepts
 that share the same name
@@ -28,9 +29,16 @@ the environment the project is running in determines the behaviour of the projec
 
 example: if we have e-commerce project
 our payment processing would be different for the three environment:
+Production
+-------------------------------------------
 --  in production(when real customers use it)
+Development
+----------------------------------------------
 --  all credit cards would be charged for real in development(when writing code)
---  we would use special "development" credit cards that behave like real ones, except that no money is actually spent in test(when running automated tests)
+Test
+---------------------------------------------
+--  we would use special "development" credit cards that behave like real ones, except
+that no money is actually spent in test(when running automated tests)
 
 
 
